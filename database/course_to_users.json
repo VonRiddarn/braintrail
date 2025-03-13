@@ -1,0 +1,22 @@
+[
+	{
+		"course_id": 1,
+		"user_id": 1,
+		"role": "STUDENT"
+	},
+	{
+		"course_id": 1,
+		"user_id": 2,
+		"role": "TEACHER"
+	},
+	{
+		"course_id": 2,
+		"user_id": 1,
+		"role": "STUDENT"
+	},
+	{
+		"course_id": 2,
+		"user_id": 3,
+		"role": "TEACHER"
+	}
+]

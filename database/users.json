@@ -1,0 +1,29 @@
+[
+	{
+		"id": 1,
+		"platformRoleId": 1,
+		"login_name": "janne64",
+		"password": "hashed_password_1",
+		"display_name": "Janne Jansson",
+		"avatar_url": "/avatars/user_1.jpg",
+		"auth_token": "token_abcdef123456"
+	},
+	{
+		"id": 2,
+		"platformRoleId": 2,
+		"login_name": "timmy97",
+		"password": "hashed_password_2",
+		"display_name": "Timmy Öhman",
+		"avatar_url": "/avatars/user_2.jpg",
+		"auth_token": "token_ghijklm789"
+	},
+	{
+		"id": 3,
+		"platformRoleId": 1,
+		"login_name": "pelle_the_one",
+		"password": "hashed_password_3",
+		"display_name": "Pelle Svanslös",
+		"avatar_url": "/avatars/user_3.jpg",
+		"auth_token": "token_xyz987654321"
+	}
+]
