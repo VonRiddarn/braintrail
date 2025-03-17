@@ -1,9 +1,5 @@
 import "./App.scss";
 
-const resb = await fetch("https://rickandmortyapi.com/api/character/302dsadsadsadsadsadsa");
-
-console.log(await resb.json());
-
 function App() {
 	return (
 		<>
