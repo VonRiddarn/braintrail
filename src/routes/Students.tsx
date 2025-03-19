@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
-import { studentsDb } from "../StudentsDB";
+import { Link, Outlet } from "react-router-dom";
+import { studentsDb } from "../studentsDb";
 
 const Students = () => {
 	return (
@@ -13,6 +13,7 @@ const Students = () => {
 						</li>
 					))}
 				</ul>
+				<Outlet />
 			</div>
 		</div>
 	);
