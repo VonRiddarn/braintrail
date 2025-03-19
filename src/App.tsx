@@ -2,7 +2,6 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.scss";
 import Home from "./routes/Home";
 import About from "./routes/About";
-import Student from "./routes/Student";
 import Students from "./routes/Students";
 import RootLayout from "./layouts/RootLayout/RootLayout";
 
@@ -23,12 +22,6 @@ function App() {
 				{
 					path: "students",
 					element: <Students />,
-					children: [
-						{
-							path: ":studentId",
-							element: <Student />,
-						},
-					],
 				},
 			],
 		},

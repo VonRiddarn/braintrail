@@ -1,7 +1,10 @@
-import { Link, Outlet } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { studentsDb } from "../studentsDb";
+import Student from "./Student";
 
 const Students = () => {
+	const term = useSearchParams()[0].get("searchQuery");
+
 	return (
 		<div>
 			Students
@@ -9,11 +12,33 @@ const Students = () => {
 				<ul>
 					{studentsDb.map((s) => (
 						<li key={s.id}>
-							<Link to={`/students/${s.id}`}>{s.name}</Link>
+							<Link to={`/students?searchQuery=${s.id}`}>{s.name}</Link>
 						</li>
 					))}
 				</ul>
-				<Outlet />
+				{term && (
+					<ul>
+						{!isNaN(Number(term)) ? (
+							<li>
+								<Student student={studentsDb.find((s) => s.id === Number(term))} />
+							</li>
+						) : (
+							<>
+								{studentsDb
+									.filter(
+										(s) =>
+											s.name.toLowerCase().includes(term.toLowerCase()) ||
+											String(s.age).includes(term)
+									)
+									.map((s) => (
+										<li key={s.id}>
+											<Student student={s} />
+										</li>
+									))}
+							</>
+						)}
+					</ul>
+				)}
 			</div>
 		</div>
 	);

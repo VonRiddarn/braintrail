@@ -1,17 +1,18 @@
-import { useParams } from "react-router-dom";
-import { studentsDb } from "../studentsDb";
+import { Student as StudentType } from "../studentsDb";
 
-const Student = () => {
-	const params = useParams();
+type StudentProps = {
+	student: StudentType | undefined;
+};
 
-	const student = studentsDb.find((s) => s.id === Number(params.studentId));
-
+const Student = ({ student }: StudentProps) => {
 	return (
-		<div>
-			<h2>
-				{student?.id + ": " + student?.name}, {student?.age}
-			</h2>
-		</div>
+		student && (
+			<div>
+				<h2>
+					{student.id + ": " + student.name}, {student.age}
+				</h2>
+			</div>
+		)
 	);
 };
 
