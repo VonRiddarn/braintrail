@@ -1,4 +1,10 @@
-export const studentsDb = [
+export type Student = {
+	id: number;
+	name: string;
+	age: number;
+};
+
+export const studentsDb: Student[] = [
 	{
 		id: 1,
 		name: "Pelle Svanslös",
