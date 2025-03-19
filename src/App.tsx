@@ -4,25 +4,31 @@ import Home from "./routes/Home";
 import About from "./routes/About";
 import Student from "./routes/Student";
 import Students from "./routes/Students";
+import RootLayout from "./layouts/RootLayout/RootLayout";
 
 function App() {
 	const router = createBrowserRouter([
 		{
 			path: "/",
-			element: <Home />,
-			/* Use children here (like Home and About to create Layouts)*/
-		},
-		{
-			path: "/about",
-			element: <About />,
-		},
-		{
-			path: "/students",
-			element: <Students />,
+			element: <RootLayout />,
 			children: [
 				{
-					path: ":studentId",
-					element: <Student />,
+					index: true,
+					element: <Home />,
+				},
+				{
+					path: "about",
+					element: <About />,
+				},
+				{
+					path: "students",
+					element: <Students />,
+					children: [
+						{
+							path: ":studentId",
+							element: <Student />,
+						},
+					],
 				},
 			],
 		},
