@@ -1,10 +1,37 @@
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.scss";
+import RootLayout from "./layouts/RootLayout";
+import Home from "./routes/Home";
+import About from "./routes/About";
+import Student from "./routes/Student";
+import Students from "./routes/Students";
 
 function App() {
+	const router = createBrowserRouter([
+		{
+			path: "/",
+			element: <Home />,
+			/* Use children here (like Home and About to create Layouts)*/
+		},
+		{
+			path: "/about",
+			element: <About />,
+		},
+		{
+			path: "/students",
+			element: <Students />,
+			children: [
+				{
+					path: ":studentId",
+					element: <Student />,
+				},
+			],
+		},
+	]);
+
 	return (
 		<>
-			<h1>🧠 Braintrail</h1>
-			<p>Oh god, what have I gotten myself into?</p>
+			<RouterProvider router={router} />
 		</>
 	);
 }
