@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { studentsDb } from "../StudentsDB";
+import { studentsDb } from "../studentsDb";
 
 const Student = () => {
 	const params = useParams();
@@ -8,10 +8,9 @@ const Student = () => {
 
 	return (
 		<div>
-			<h2>{student?.id + ": " + student?.name}</h2>
-			<ul>
-				<li>{student?.age}</li>
-			</ul>
+			<h2>
+				{student?.id + ": " + student?.name}, {student?.age}
+			</h2>
 		</div>
 	);
 };
