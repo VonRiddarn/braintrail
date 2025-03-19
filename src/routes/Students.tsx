@@ -2,6 +2,14 @@ import { Link, useSearchParams } from "react-router-dom";
 import { studentsDb } from "../studentsDb";
 import Student from "./Student";
 
+// TEMP STUFF
+// 🤮🤮🤮
+// TODO: Use some kind of searchBy query
+// searchBy=name
+// searchBy=name age
+// searchBy=name id age
+// ...
+
 const Students = () => {
 	const term = useSearchParams()[0].get("searchQuery");
 
@@ -25,11 +33,14 @@ const Students = () => {
 						) : (
 							<>
 								{studentsDb
-									.filter(
-										(s) =>
-											s.name.toLowerCase().includes(term.toLowerCase()) ||
-											String(s.age).includes(term)
-									)
+									.filter((s) => {
+										const terms = term.toLowerCase().split(" ");
+										return terms.some(
+											(term) =>
+												s.name.toLowerCase().includes(term) ||
+												String(s.age).includes(term)
+										);
+									})
 									.map((s) => (
 										<li key={s.id}>
 											<Student student={s} />
